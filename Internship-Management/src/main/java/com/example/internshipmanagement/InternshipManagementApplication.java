@@ -1,13 +1,13 @@
-package com.example.gestionstage;
+package com.example.internshipmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GestionStageApplication {
+public class InternshipManagementApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GestionStageApplication.class, args);
+        SpringApplication.run(InternshipManagementApplication.class, args);
     }
 
 }
