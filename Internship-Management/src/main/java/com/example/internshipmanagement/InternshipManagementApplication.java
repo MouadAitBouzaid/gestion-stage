@@ -17,7 +17,7 @@ public class InternshipManagementApplication {
     public static void main(String[] args) {
         SpringApplication.run(InternshipManagementApplication.class, args);
     }
-    @Bean
+   // @Bean
     CommandLineRunner start(EtudiantAccountRepository etudiantAccountRepository){
         Role role = null;
         return  args -> {
