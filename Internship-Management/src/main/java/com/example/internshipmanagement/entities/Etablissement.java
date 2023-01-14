@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -14,10 +16,9 @@ public class Etablissement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
-    private Etudiant etudiantEtab;
-    @ManyToOne
+    @OneToMany
+    private List<Etudiant> etudiantsEtab;
+    @OneToOne
     private ResponsableStage responssableEtab;
-
 
 }

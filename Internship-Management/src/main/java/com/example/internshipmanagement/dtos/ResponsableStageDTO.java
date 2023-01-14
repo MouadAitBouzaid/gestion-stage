@@ -10,5 +10,7 @@ import java.util.List;
 
 @Data
 public class ResponsableStageDTO extends UtilisateurDTO{
+
+
     private List<EtablissementDTO> etablissementDTOS;
 }

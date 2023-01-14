@@ -17,5 +17,5 @@ public class EtudiantDTO extends UtilisateurDTO{
     @Enumerated(EnumType.STRING)
     private Role role;
     private List<DocumentDTO> documentDTOS;
-    private List<EtablissementDTO> etablissementDTOS;
+
 }

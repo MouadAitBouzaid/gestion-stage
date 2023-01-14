@@ -1,9 +1,7 @@
 package com.example.internshipmanagement.web;
 
 import com.example.internshipmanagement.dtos.EtablissementDTO;
-import com.example.internshipmanagement.dtos.EtudiantDTO;
 import com.example.internshipmanagement.services.EtablissementServiceImpl;
-import com.example.internshipmanagement.services.EtudiantAccountServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,15 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 @CrossOrigin("*")
-public class EtudiantRestController {
+public class EtablissementRestController {
+    private EtablissementServiceImpl etablissementService;
 
-    private EtudiantAccountServiceImpl etudiantAccountService;
-    
-
-    @GetMapping("/etudiants")
-    public List<EtudiantDTO> listerEtudiat(){
-        return etudiantAccountService.listEtudiant();
+    @GetMapping("/etablissements")
+    public List<EtablissementDTO> listerEtab(){
+        return etablissementService.listEtablissement();
     }
-
-
 }

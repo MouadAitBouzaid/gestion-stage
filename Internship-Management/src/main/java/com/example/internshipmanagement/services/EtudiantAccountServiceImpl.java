@@ -2,16 +2,13 @@ package com.example.internshipmanagement.services;
 
 import com.example.internshipmanagement.dtos.EtudiantDTO;
 import com.example.internshipmanagement.entities.Etudiant;
-import com.example.internshipmanagement.mappers.EtudiantMapperImpl;
+import com.example.internshipmanagement.mappers.EtablissementMapperImpl;
 import com.example.internshipmanagement.repositories.EtudiantAccountRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.logging.Log;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +20,7 @@ import java.util.stream.Collectors;
 public class EtudiantAccountServiceImpl implements EtudiantAccountService{
     private EtudiantAccountRepository etudiantAccountRepository;
 
-    private EtudiantMapperImpl dtoMapper;
+    private EtablissementMapperImpl dtoMapper;
 
     @Override
     public EtudiantDTO saveEtudiant(EtudiantDTO etudiantDTO){

@@ -24,6 +24,6 @@ public class ResponsableStage {
     private String email;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToMany(mappedBy = "responssableEtab")
-    private List<Etablissement> etablissements;
+    @OneToOne
+    private Etablissement etablissement;
 }
