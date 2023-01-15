@@ -27,6 +27,8 @@ public class Etudiant {
     private Role role;
     @OneToMany(mappedBy = "etudiantDoc")
     private List<Document> documents;
-    @OneToOne
-    private Etablissement etablissements;
+    @ManyToOne
+    private Etablissement etablissement;
+    @ManyToOne
+    private Professeur encadrant;
 }

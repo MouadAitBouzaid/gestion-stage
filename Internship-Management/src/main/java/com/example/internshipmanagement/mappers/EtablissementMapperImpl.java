@@ -12,6 +12,7 @@ public class EtablissementMapperImpl {
     public EtudiantDTO fromEtudiant(Etudiant etudiant){
         EtudiantDTO etudiantDTO = new EtudiantDTO();
         BeanUtils.copyProperties(etudiant,etudiantDTO);
+        etudiantDTO.setEtablissement(fromEtablissement(etudiant.getEtablissement()));
         return etudiantDTO;
     }
 
@@ -22,8 +23,11 @@ public class EtablissementMapperImpl {
     }
 
     public EtablissementDTO fromEtablissement(Etablissement etablissement){
+       if(etablissement==null) return  null;
         EtablissementDTO etablissementDTO = new EtablissementDTO();
-        BeanUtils.copyProperties(etablissement,etablissementDTO);
+        //BeanUtils.copyProperties(etablissement,etablissementDTO);
+        etablissementDTO.setId(etablissement.getId());
+        etablissementDTO.setName(etablissement.getName());
         return etablissementDTO;
     }
 

@@ -14,8 +14,8 @@ import java.util.List;
 public class EtudiantDTO extends UtilisateurDTO{
 
     private String niveau;
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    private List<DocumentDTO> documentDTOS;
+    private List<DocumentDTO> documents;
+    private ProfesseurDTO encadrant;
+    private EtablissementDTO etablissement;
 
 }

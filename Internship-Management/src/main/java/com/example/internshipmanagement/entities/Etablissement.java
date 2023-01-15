@@ -1,5 +1,6 @@
 package com.example.internshipmanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +17,9 @@ public class Etablissement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    private List<Etudiant> etudiantsEtab;
+    @OneToMany(mappedBy = "etablissement")
+   // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Etudiant> etudiantList;
     @OneToOne
     private ResponsableStage responssableEtab;
 

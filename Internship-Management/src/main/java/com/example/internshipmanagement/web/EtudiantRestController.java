@@ -19,7 +19,7 @@ import java.util.List;
 public class EtudiantRestController {
 
     private EtudiantAccountServiceImpl etudiantAccountService;
-    
+
 
     @GetMapping("/etudiants")
     public List<EtudiantDTO> listerEtudiat(){

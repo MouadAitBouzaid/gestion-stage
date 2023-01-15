@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Slf4j
 public class EtablissementServiceImpl implements EtablissementService{
+    private final EtudiantAccountRepository etudiantAccountRepository;
     private EtablissementRepository etablissementRepository;
     private EtablissementMapperImpl dtoMapper;
 
@@ -33,6 +34,14 @@ public class EtablissementServiceImpl implements EtablissementService{
         return dtoMapper.fromEtablissement(saveEtablissement);
     }
 
+    public EtablissementDTO saveEtablissementGlobal(Long etabId, String nameEtab ){
+        Etablissement etablissement = etablissementRepository.findById(etabId).orElse(null);
+       // List<Etudiant> etudiant = etudiantAccountRepository;
+
+
+        return null;
+
+    }
     @Override
     public List<EtablissementDTO> listEtablissement() {
        List<Etablissement> etablissements = etablissementRepository.findAll();
