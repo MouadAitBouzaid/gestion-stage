@@ -23,8 +23,6 @@ public class Etudiant {
     private String name;
     private String email;
     private String niveau;
-    @OneToOne
-    private Reunion reunion;
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToMany(mappedBy = "etudiantDoc")
@@ -33,4 +31,6 @@ public class Etudiant {
     private Etablissement etablissement;
     @ManyToOne
     private Professeur encadrant;
+    @OneToOne
+    private Reunion reunion;
 }

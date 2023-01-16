@@ -22,4 +22,6 @@ public class Professeur {
     private String email;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @OneToOne
+    private Reunion reunion;
 }

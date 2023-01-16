@@ -3,6 +3,7 @@ package com.example.internshipmanagement.controller;
 import com.example.internshipmanagement.dtos.EtablissementDTO;
 import com.example.internshipmanagement.dtos.ReunionDTO;
 import com.example.internshipmanagement.entities.Etablissement;
+import com.example.internshipmanagement.entities.Etudiant;
 import com.example.internshipmanagement.entities.Reunion;
 import com.example.internshipmanagement.mappers.ReunionMapper;
 import com.example.internshipmanagement.repositories.ReunionRepository;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ReunionController {
@@ -24,10 +27,14 @@ public class ReunionController {
         return new ResponseEntity<>(reunionMapper.toDto(reunionRepository.findById(id).get()), HttpStatus.OK);
     }
 
+    @GetMapping("/reunions/")
+    public ResponseEntity<List<ReunionDTO>> findAll(){
+        return new ResponseEntity<>(reunionMapper.listToDtos(reunionRepository.findAll()),HttpStatus.OK);
+    }
+
     @PostMapping("/reunions/")
-    public ResponseEntity<Reunion> save(@RequestBody ReunionDTO reunionDTO){
-        return new ResponseEntity<>(reunionRepository.save(
-                reunionMapper.fromDto(reunionDTO)), HttpStatus.CREATED);
+    public Reunion createEmployee(@RequestBody Reunion reunion) {
+        return reunionRepository.save(reunion);
     }
 
     @DeleteMapping("/reunions/{id}")

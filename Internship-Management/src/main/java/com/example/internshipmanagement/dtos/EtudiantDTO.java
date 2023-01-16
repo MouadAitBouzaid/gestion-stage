@@ -17,5 +17,6 @@ public class EtudiantDTO extends UtilisateurDTO{
     private List<DocumentDTO> documents;
     private ProfesseurDTO encadrant;
     private EtablissementDTO etablissement;
+    private ReunionDTO reunionDTO;
 
 }
