@@ -44,9 +44,9 @@ public class EtudiantController {
      }
 
     @PutMapping("/etudiants/{id}")
-    public EtudiantDTO updateEmployee(@PathVariable long id, @RequestBody EtudiantDTO etudiantDTO) {
+    public EtudiantDTO updateEtudiant(@PathVariable long id, @RequestBody EtudiantDTO etudiantDTO) {
         Etudiant etudiant = etudiantRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Etudiant not found with id " + id));
         etudiantMapper.updateEntityFromDto(etudiantDTO, etudiant);
         return etudiantMapper.toDto(etudiantRepository.save(etudiant));
     }

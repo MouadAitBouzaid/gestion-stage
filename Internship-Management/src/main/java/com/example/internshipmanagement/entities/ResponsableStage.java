@@ -22,6 +22,8 @@ public class ResponsableStage {
     private String phoneNumber;
     private String name;
     private String email;
+    @OneToOne
+    private Reunion reunion;
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne

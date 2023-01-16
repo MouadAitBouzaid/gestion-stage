@@ -7,6 +7,7 @@ import com.example.internshipmanagement.entities.Professeur;
 import com.example.internshipmanagement.mappers.ProfesseurMapper;
 import com.example.internshipmanagement.repositories.ProfesseurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,14 @@ public class ProfesseurController {
     @GetMapping("/professeurs/")
     public ResponseEntity<List<ProfesseurDTO>> findAll(){
         return new ResponseEntity<>(professeurMapper.listToDtos(professeurRepository.findAll()),HttpStatus.OK);
+    }
+
+    @PutMapping("/professeurs/{id}")
+    public ProfesseurDTO updateProfesseur(@PathVariable long id, @RequestBody ProfesseurDTO professeurDTO) {
+        Professeur professeur = professeurRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Professeur not found with id " + id));
+        professeurMapper.updateEntityFromDto(professeurDTO, professeur);
+        return professeurMapper.toDto(professeurRepository.save(professeur));
     }
 
 
