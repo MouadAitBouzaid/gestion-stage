@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -15,8 +17,9 @@ public class Reunion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dateReunion;
-    @OneToOne
+    @ManyToOne
     private Etudiant etudiant;
-    @OneToOne
+    @ManyToOne
     private Professeur professeur;
+
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,6 +24,6 @@ public class Professeur {
     private String email;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne
-    private Reunion reunion;
+    @OneToMany(mappedBy = "professeur")
+    private List<Reunion> reunions;
 }

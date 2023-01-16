@@ -31,6 +31,6 @@ public class Etudiant {
     private Etablissement etablissement;
     @ManyToOne
     private Professeur encadrant;
-    @OneToOne
-    private Reunion reunion;
+    @OneToMany
+    private List<Reunion> reunions;
 }

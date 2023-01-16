@@ -15,5 +15,5 @@ public interface ProfesseurMapper {
     List<ProfesseurDTO> listToDtos (List<Professeur> professeurs);
     Professeur fromDto(ProfesseurDTO professeurDTO);
     @Mapping(target = "id", ignore = true)
-    void updateEntityFromDto(ProfesseurDTO dto, @MappingTarget Professeur professeur);
+    void updateEntityFromDto(ProfesseurDTO dto, @MappingTarget Professeur pro);
 }
