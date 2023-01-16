@@ -31,6 +31,6 @@ public class Etudiant {
     private Etablissement etablissement;
     @ManyToOne
     private Professeur encadrant;
-    @OneToMany
+    @OneToMany(mappedBy = "etudiant")
     private List<Reunion> reunions;
 }
