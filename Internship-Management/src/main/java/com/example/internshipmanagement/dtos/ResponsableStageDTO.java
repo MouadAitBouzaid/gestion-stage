@@ -3,5 +3,5 @@ package com.example.internshipmanagement.dtos;
 import lombok.Data;
 @Data
 public class ResponsableStageDTO extends UtilisateurDTO{
-    private EtablissementDTO etablissementDTOS;
+    private EtablissementDTO etablissement;
 }

@@ -11,6 +11,6 @@ import java.time.LocalDateTime;
 public class ReunionDTO {
     private Long id;
     private LocalDateTime dateReunion;
-    private EtudiantDTO etudiantDTO;
-    private ProfesseurDTO professeurDTO;
+    private EtudiantDTO etudiant;
+    private ProfesseurDTO professeur;
 }
