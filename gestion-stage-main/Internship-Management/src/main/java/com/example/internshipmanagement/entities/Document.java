@@ -25,6 +25,6 @@ public class Document {
     @Enumerated(EnumType.STRING)
     private TypeDocument typeDocument;
     @ManyToOne
-    private Etudiant etudiant;
+    private Etudiant etudiantDoc;
 
 }

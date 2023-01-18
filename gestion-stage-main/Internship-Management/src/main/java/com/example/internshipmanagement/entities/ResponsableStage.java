@@ -1,6 +1,6 @@
 package com.example.internshipmanagement.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.internshipmanagement.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,15 +12,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Etablissement {
+public class ResponsableStage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String username;
+    private String password;
+    private String lastName;
+    private String phoneNumber;
     private String name;
-    @OneToMany(mappedBy = "etablissement")
-   // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Etudiant> etudiants;
+    private String email;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     @OneToOne
-    private ResponsableStage responssable;
-
+    private Etablissement etablissement;
 }

@@ -19,8 +19,8 @@ public class Etablissement {
     private String name;
     @OneToMany(mappedBy = "etablissement")
    // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Etudiant> etudiants;
+    private List<Etudiant> etudiantList;
     @OneToOne
-    private ResponsableStage responssable;
+    private ResponsableStage responssableEtab;
 
 }

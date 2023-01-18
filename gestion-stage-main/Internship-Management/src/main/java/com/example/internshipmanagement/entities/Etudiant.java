@@ -25,7 +25,7 @@ public class Etudiant {
     private String niveau;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToMany(mappedBy = "etudiant")
+    @OneToMany(mappedBy = "etudiantDoc")
     private List<Document> documents;
     @ManyToOne
     private Etablissement etablissement;

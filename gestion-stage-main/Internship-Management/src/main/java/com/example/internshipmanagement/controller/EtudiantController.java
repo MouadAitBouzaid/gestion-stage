@@ -8,13 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/etudiants/")
 public class EtudiantController {
      @Autowired
      private EtudiantMapper etudiantMapper;
@@ -28,7 +26,7 @@ public class EtudiantController {
      }
      */
 
-    @PostMapping("")
+    @PostMapping("/etudiants/")
     public Etudiant createEmployee(@RequestBody Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
     }
@@ -40,12 +38,12 @@ public class EtudiantController {
 
      */
 
-     @GetMapping("")
+     @GetMapping("/etudiants/")
      public ResponseEntity<List<EtudiantDTO>> findAll(){
         return new ResponseEntity<>(etudiantMapper.listToDtos(etudiantRepository.findAll()),HttpStatus.OK);
      }
 
-    @PutMapping("/{id}")
+    @PutMapping("/etudiants/{id}")
     public EtudiantDTO updateEtudiant(@PathVariable long id, @RequestBody EtudiantDTO etudiantDTO) {
         Etudiant etudiant = etudiantRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Etudiant not found with id " + id));
@@ -63,12 +61,12 @@ public class EtudiantController {
       */
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/etudiants/{id}")
     public ResponseEntity<EtudiantDTO> findById(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(etudiantMapper.toDto(etudiantRepository.findById(id).get()), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/etudiants/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable(value = "id") Long id){
         EtudiantDTO etudiantDTO = etudiantMapper.toDto(etudiantRepository.findById(id).get());
         etudiantRepository.deleteById(etudiantDTO.getId());

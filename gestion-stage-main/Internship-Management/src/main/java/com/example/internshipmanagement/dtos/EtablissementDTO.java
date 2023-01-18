@@ -8,6 +8,5 @@ import java.util.List;
 public class EtablissementDTO {
     private Long id;
     private String name;
-    private List<EtudiantDTO> etudiants;
-    private ResponsableStageDTO responssable;
+    //private List<EtudiantDTO> etudiantDTOList;
 }
