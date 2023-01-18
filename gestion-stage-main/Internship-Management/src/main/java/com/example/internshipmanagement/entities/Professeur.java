@@ -24,6 +24,6 @@ public class Professeur {
     private String email;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToMany(mappedBy = "professeur")
+    @OneToMany(mappedBy = "professeur", fetch = FetchType.EAGER)
     private List<Reunion> reunions;
 }

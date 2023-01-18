@@ -25,12 +25,12 @@ public class Etudiant {
     private String niveau;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToMany(mappedBy = "etudiantDoc")
+    @OneToMany(mappedBy = "etudiantDoc", fetch = FetchType.EAGER)
     private List<Document> documents;
     @ManyToOne
     private Etablissement etablissement;
     @ManyToOne
     private Professeur encadrant;
-    @OneToMany(mappedBy = "etudiant")
+    @OneToMany(mappedBy = "etudiant", fetch = FetchType.EAGER)
     private List<Reunion> reunions;
 }

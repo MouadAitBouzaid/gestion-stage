@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReunionServiceImp implements ReunionService{
@@ -18,6 +19,10 @@ public class ReunionServiceImp implements ReunionService{
 
 
     @Override
+    public List<ReunionDTO> findAll() {
+        return reunionMapper.listToDtos(reunionRepository.findAll());
+    }
+    @Override
     public ReunionDTO save(ReunionDTO reunionDTO) {
         Reunion reunion = reunionMapper.fromDto(reunionDTO);
         Reunion saved = reunionRepository.save(reunion);
@@ -25,9 +30,15 @@ public class ReunionServiceImp implements ReunionService{
 
         return reunionDTO;
     }
-
     @Override
-    public List<ReunionDTO> findAll() {
-        return reunionMapper.listToDtos(reunionRepository.findAll());
+    public Optional<ReunionDTO> getEtudiantById(Long reunionId) {
+        return reunionRepository.findById(reunionId)
+                .map(reunionMapper::toDto);
+    }
+    @Override
+    public Optional<ReunionDTO> deleteEtudiant(Long reunionId) {
+        Optional<Reunion> reunion = reunionRepository.findById(reunionId);
+        reunion.ifPresent(reunionRepository::delete);
+        return reunion.map(reunionMapper::toDto);
     }
 }
