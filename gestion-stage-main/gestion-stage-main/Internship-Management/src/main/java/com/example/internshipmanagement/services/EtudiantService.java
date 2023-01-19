@@ -14,6 +14,7 @@ public interface EtudiantService {
     Optional<EtudiantDTO> deleteEtudiant(Long reunionId);
     Optional<EtudiantDTO> updateEtudiant(Long etudiantId, EtudiantDTO etudiantDto);
     EtudiantDTO findByUsername(String username);
+    List<EtudiantDTO> getEtudiantByProf(Long id);
 
 
 

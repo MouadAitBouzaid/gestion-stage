@@ -61,4 +61,9 @@ public class EtudiantServiceImp implements EtudiantService{
     public EtudiantDTO findByUsername(String username){
         return etudiantMapper.toDto(etudiantRepository.findEtudiantByUsername(username));
     }
+
+    @Override
+    public List<EtudiantDTO> getEtudiantByProf(Long id) {
+        return etudiantMapper.listToDtos(etudiantRepository.findEtudiantByEncadrantId(id));
+    }
 }
