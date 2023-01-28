@@ -9,6 +9,8 @@ import java.util.Date;
 public class DocumentDTO {
     private Long id;
     private String name;
-    private LocalDateTime dateSoumission;
-    private LocalDateTime dateModification;
+    private String dateSoumission;
+    private String dateModification;
+
+    private EtudiantDTO etudiant;
 }

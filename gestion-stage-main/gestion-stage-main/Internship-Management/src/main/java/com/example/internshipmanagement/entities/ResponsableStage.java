@@ -16,6 +16,7 @@ public class ResponsableStage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String username;
     private String password;
     private String lastName;
@@ -25,5 +26,6 @@ public class ResponsableStage {
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne
+    @JoinColumn(name = "etablissement_id")
     private Etablissement etablissement;
 }

@@ -18,13 +18,13 @@ public class EtudiantController {
      @Autowired
      private EtudiantService etudiantService;
 
-    @GetMapping("/etudiants/")
+    @GetMapping("/etudiants/all")
     public ResponseEntity<List<EtudiantDTO>> findAll(){
         return ResponseEntity.ok(etudiantService.findAll());
     }
 
-    @GetMapping("/etudiants/{id}")
-    public ResponseEntity<EtudiantDTO> getReunion(@PathVariable(value = "id")Long etudiantId){
+    @GetMapping("/etudiants/find/{id}")
+    public ResponseEntity<EtudiantDTO> getById(@PathVariable(value = "id")Long etudiantId){
         return ResponseEntity.ok(etudiantService.getEtudiantById(etudiantId).get());
     }
 
@@ -34,18 +34,18 @@ public class EtudiantController {
         return  ResponseEntity.ok(etudiantService.findByUsername(username));
     }
 
-    @PostMapping("/etudiants/")
+    @PostMapping("/etudiants/add/")
     public ResponseEntity<EtudiantDTO> createEtudiant(@RequestBody EtudiantDTO etudiant) {
         return ResponseEntity.ok(etudiantService.save(etudiant));
     }
 
-    @DeleteMapping("/etudiants/{id}")
+    @DeleteMapping("/etudiants/delete/{id}")
     public ResponseEntity<HttpStatus> deleteEtudiant(@PathVariable(value = "id") Long etudiantId) {
         etudiantService.deleteEtudiant(etudiantId);
         return ResponseEntity.ok((HttpStatus.OK));
     }
 
-    @PutMapping("/etudiants/{id}")
+    @PutMapping("/etudiants/update/{id}")
     public ResponseEntity<EtudiantDTO> updateEtudiant(@PathVariable(value = "id") Long etudiantId, @RequestBody EtudiantDTO etudiantDetails) {
         return etudiantService.updateEtudiant(etudiantId, etudiantDetails)
                 .map(etudiant -> new ResponseEntity<>(etudiant, HttpStatus.OK))

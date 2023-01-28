@@ -19,8 +19,8 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalDateTime dateSoumission;
-    private LocalDateTime dateModification;
+    private String dateSoumission;
+    private String dateModification;
     private String path;
     @Enumerated(EnumType.STRING)
     private TypeDocument typeDocument;

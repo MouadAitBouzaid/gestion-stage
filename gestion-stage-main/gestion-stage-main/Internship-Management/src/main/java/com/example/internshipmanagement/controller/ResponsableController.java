@@ -19,12 +19,12 @@ public class ResponsableController {
     @Autowired
     ResponsableService responsableService;
 
-    @GetMapping("/responsables/")
+    @GetMapping("/responsables/all/")
     public ResponseEntity<List<ResponsableStageDTO>> findAll(){
         return ResponseEntity.ok(responsableService.findAll());
     }
 
-    @GetMapping("/responsables/{id}")
+    @GetMapping("/responsables/find/{id}")
     public ResponseEntity<ResponsableStageDTO> get(@PathVariable(value = "id")Long responsableId){
         return ResponseEntity.ok(responsableService.getById(responsableId).get());
     }
@@ -34,18 +34,18 @@ public class ResponsableController {
         return  ResponseEntity.ok(responsableService.findByUsername(username));
     }
 
-    @PostMapping("/responsables/")
+    @PostMapping("/responsables/add/")
     public ResponseEntity<ResponsableStageDTO> create(@RequestBody ResponsableStageDTO responsableStageDTO) {
         return ResponseEntity.ok(responsableService.save(responsableStageDTO));
     }
 
-    @DeleteMapping("/responsables/{id}")
+    @DeleteMapping("/responsables/delete/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable(value = "id") Long responsableId) {
         responsableService.delet(responsableId);
         return ResponseEntity.ok((HttpStatus.OK));
     }
 
-    @PutMapping("/responsables/{id}")
+    @PutMapping("/responsables/update/{id}")
     public ResponseEntity<ResponsableStageDTO> update(@PathVariable(value = "id") Long responsableId, @RequestBody ResponsableStageDTO responsableDetails) {
         return responsableService.update(responsableId, responsableDetails)
                 .map(responsable -> new ResponseEntity<>(responsable, HttpStatus.OK))

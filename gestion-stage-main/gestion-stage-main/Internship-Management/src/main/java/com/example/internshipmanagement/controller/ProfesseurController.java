@@ -18,28 +18,28 @@ public class ProfesseurController {
     @Autowired
     ProfesseurService professeurService;
 
-    @GetMapping("/professeurs/")
+    @GetMapping("/professeurs/all")
     public ResponseEntity<List<ProfesseurDTO>> findAll(){
         return ResponseEntity.ok(professeurService.findAll());
     }
 
-    @GetMapping("/professeurs/{id}")
+    @GetMapping("/professeurs/find/{id}")
     public ResponseEntity<ProfesseurDTO> get(@PathVariable(value = "id")Long professeurId){
         return ResponseEntity.ok(professeurService.getById(professeurId).get());
     }
 
-    @PostMapping("/professeurs/")
+    @PostMapping("/professeurs/add")
     public ResponseEntity<ProfesseurDTO> create(@RequestBody ProfesseurDTO professeurDTO) {
         return ResponseEntity.ok(professeurService.save(professeurDTO));
     }
 
-    @DeleteMapping("/professeurs/{id}")
+    @DeleteMapping("/professeurs/delete/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable(value = "id") Long professeurId) {
         professeurService.delet(professeurId);
         return ResponseEntity.ok((HttpStatus.OK));
     }
 
-    @PutMapping("/professeurs/{id}")
+    @PutMapping("/professeurs/update/{id}")
     public ResponseEntity<ProfesseurDTO> update(@PathVariable(value = "id") Long professeurId, @RequestBody ProfesseurDTO professeurDetails) {
         return professeurService.update(professeurId, professeurDetails)
                 .map(professeur -> new ResponseEntity<>(professeur, HttpStatus.OK))

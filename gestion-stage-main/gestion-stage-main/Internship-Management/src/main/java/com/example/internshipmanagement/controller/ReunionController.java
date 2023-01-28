@@ -22,23 +22,23 @@ public class ReunionController {
     private ReunionService reunionService;
 
 
-    @GetMapping("/reunions/")
+    @GetMapping("/reunions/all")
     public ResponseEntity<List<ReunionDTO>> findAll(){
         return ResponseEntity.ok(reunionService.findAll());
     }
 
-    @PostMapping("/reunions/")
+    @PostMapping("/reunions/add/")
     public ResponseEntity<ReunionDTO> createReunion(@RequestBody ReunionDTO reunion) {
         return ResponseEntity.ok(reunionService.save(reunion));
     }
 
-    @DeleteMapping("/reunions/{id}")
+    @DeleteMapping("/reunions/delete/{id}")
     public ResponseEntity<HttpStatus> deleteReunion(@PathVariable(value = "id") Long reunionId) {
         reunionService.deleteEtudiant(reunionId);
         return ResponseEntity.ok((HttpStatus.OK));
     }
 
-    @GetMapping("/reunions/{id}")
+    @GetMapping("/reunions/byId/{id}")
     public ResponseEntity<ReunionDTO> getReunion(@PathVariable(value = "id")Long reunionId){
         return ResponseEntity.ok(reunionService.getEtudiantById(reunionId).get());
     }

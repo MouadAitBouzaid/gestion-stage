@@ -16,7 +16,13 @@ public class Etablissement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
+    private String email;
+
+    private String adress;
+
     @OneToMany(mappedBy = "etablissement", fetch = FetchType.EAGER)
    // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Etudiant> etudiantList;
